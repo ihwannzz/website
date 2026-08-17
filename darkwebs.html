@@ -1,0 +1,3098 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DARKWEBS - Jasa pembuatan website modern, premium dan profesional.">
+  <title>DARKWEBS — Jasa Pembuatan Website</title>
+
+  <style>
+    :root {
+      --bg: #050505;
+      --bg2: #080808;
+      --card: #0d0d0f;
+      --card2: #111114;
+      --white: #ffffff;
+      --text: #eeeeee;
+      --muted: #92929d;
+
+      --purple: #8b5cf6;
+      --purple2: #a855f7;
+      --pink: #ec4899;
+      --cyan: #22d3ee;
+
+      --border: rgba(255,255,255,.09);
+      --shadow: 0 25px 80px rgba(0,0,0,.55);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(139,92,246,.13), transparent 25%),
+        radial-gradient(circle at 85% 25%, rgba(34,211,238,.08), transparent 25%),
+        #050505;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .025;
+      background-image:
+        linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    /* =========================
+       LOADER
+    ========================= */
+
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #030303;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .5s;
+    }
+
+    .loader-box {
+      text-align: center;
+    }
+
+    .loader-logo {
+      width: 75px;
+      height: 75px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      margin: auto;
+      color: white;
+      font-size: 25px;
+      font-weight: 1000;
+      background:
+        linear-gradient(135deg, var(--purple), var(--pink));
+      box-shadow:
+        0 0 35px rgba(139,92,246,.5);
+      animation: loaderPulse 1.2s infinite;
+    }
+
+    .loader-name {
+      margin-top: 18px;
+      font-weight: 1000;
+      font-size: 18px;
+      letter-spacing: 4px;
+    }
+
+    .loader-text {
+      color: #666;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    @keyframes loaderPulse {
+      50% {
+        transform: scale(1.08) rotate(3deg);
+        box-shadow: 0 0 60px rgba(139,92,246,.7);
+      }
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 20px 5%;
+      transition: .3s;
+    }
+
+    header.scrolled {
+      padding: 12px 5%;
+      background: rgba(5,5,5,.78);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1250px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 1000;
+      letter-spacing: 1px;
+    }
+
+    .logo-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      box-shadow: 0 0 25px rgba(139,92,246,.35);
+      color: white;
+      font-weight: 1000;
+    }
+
+    .logo-text {
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    .logo-text span {
+      color: var(--purple2);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    nav a {
+      color: #aaaab3;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .nav-order {
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: white;
+      color: black !important;
+      transition: .25s;
+    }
+
+    .nav-order:hover {
+      background: var(--purple);
+      color: white !important;
+      box-shadow: 0 0 25px rgba(139,92,246,.4);
+    }
+
+    .menu-btn {
+      display: none;
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #0d0d0d;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      max-width: 1250px;
+      min-height: 100vh;
+      margin: auto;
+      padding: 150px 5% 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(139,92,246,.25);
+      background: rgba(139,92,246,.08);
+      color: #bda9ff;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #00ff9d;
+      box-shadow: 0 0 12px #00ff9d;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: .98;
+      letter-spacing: -4px;
+      color: white;
+      margin-bottom: 25px;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        90deg,
+        #ffffff,
+        #b18cff,
+        #ec4899
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      padding: 15px 22px;
+      border-radius: 13px;
+      font-weight: 900;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--pink)
+      );
+      color: white;
+      box-shadow: 0 12px 35px rgba(139,92,246,.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 18px 45px rgba(139,92,246,.4),
+        0 0 30px rgba(139,92,246,.15);
+    }
+
+    .btn-dark {
+      background: #111114;
+      border: 1px solid var(--border);
+      color: white;
+    }
+
+    .btn-dark:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139,92,246,.4);
+    }
+
+    .stats {
+      display: flex;
+      gap: 35px;
+      margin-top: 42px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+      color: white;
+    }
+
+    .stat span {
+      color: #6e6e79;
+      font-size: 11px;
+      margin-top: 5px;
+      display: block;
+    }
+
+    /* =========================
+       HERO MOCKUP
+    ========================= */
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: 0;
+      top: 50px;
+      background: var(--purple);
+      opacity: .18;
+      filter: blur(100px);
+    }
+
+    .browser {
+      position: relative;
+      background: #0b0b0d;
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 12px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+      transition: .4s;
+    }
+
+    .browser:hover {
+      transform: rotate(0) translateY(-8px);
+    }
+
+    .browser-top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 8px 12px;
+    }
+
+    .browser-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #34343a;
+    }
+
+    .browser-dot:nth-child(1) {
+      background: #ff5f57;
+    }
+
+    .browser-dot:nth-child(2) {
+      background: #ffbd2e;
+    }
+
+    .browser-dot:nth-child(3) {
+      background: #28c840;
+    }
+
+    .address {
+      height: 24px;
+      flex: 1;
+      background: #131316;
+      border-radius: 7px;
+      margin-left: 5px;
+      border: 1px solid #202026;
+    }
+
+    .preview {
+      min-height: 410px;
+      border-radius: 17px;
+      overflow: hidden;
+      position: relative;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 80% 15%, rgba(236,72,153,.35), transparent 25%),
+        radial-gradient(circle at 15% 80%, rgba(34,211,238,.18), transparent 25%),
+        linear-gradient(145deg, #0d0d12, #17111f);
+    }
+
+    .preview::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .preview-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .preview-logo {
+      font-weight: 1000;
+      letter-spacing: 3px;
+    }
+
+    .preview-title {
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 1000;
+      margin-top: 65px;
+      max-width: 350px;
+    }
+
+    .preview-title span {
+      color: #a78bfa;
+    }
+
+    .preview-text {
+      color: #777782;
+      margin-top: 16px;
+      max-width: 300px;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .preview-button {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 11px 15px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      border-radius: 9px;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .preview-card {
+      position: absolute;
+      z-index: 3;
+      right: 25px;
+      bottom: 25px;
+      width: 160px;
+      padding: 17px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 17px;
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(15px);
+    }
+
+    .preview-card small {
+      color: #777782;
+      font-size: 9px;
+    }
+
+    .preview-card strong {
+      display: block;
+      font-size: 22px;
+      margin-top: 6px;
+    }
+
+    .mini-bars {
+      display: flex;
+      gap: 5px;
+      height: 35px;
+      align-items: end;
+      margin-top: 10px;
+    }
+
+    .mini-bars span {
+      width: 9px;
+      border-radius: 5px;
+      background: linear-gradient(#a78bfa, #ec4899);
+    }
+
+    .mini-bars span:nth-child(1) { height: 15px; }
+    .mini-bars span:nth-child(2) { height: 22px; }
+    .mini-bars span:nth-child(3) { height: 28px; }
+    .mini-bars span:nth-child(4) { height: 35px; }
+
+    /* =========================
+       GENERAL SECTION
+    ========================= */
+
+    section {
+      padding: 100px 5%;
+    }
+
+    .section-inner {
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 55px;
+    }
+
+    .heading small {
+      color: #a78bfa;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 900;
+      font-size: 10px;
+    }
+
+    .heading h2 {
+      color: white;
+      font-size: clamp(32px, 4vw, 50px);
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin: 13px 0;
+    }
+
+    .heading p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 22px;
+      transition: .35s;
+    }
+
+    .service:hover {
+      transform: translateY(-8px);
+      border-color: rgba(139,92,246,.35);
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(139,92,246,.1);
+      border: 1px solid rgba(139,92,246,.15);
+      font-size: 23px;
+      margin-bottom: 21px;
+    }
+
+    .service h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      color: #777782;
+      line-height: 1.7;
+      font-size: 13px;
+    }
+
+    /* =========================
+       PRICING
+    ========================= */
+
+    .pricing-section {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .price-card {
+      position: relative;
+      padding: 30px;
+      border-radius: 23px;
+      background: #0d0d0f;
+      border: 1px solid var(--border);
+      transition: .35s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .price-card.popular {
+      border-color: rgba(139,92,246,.65);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(139,92,246,.14), transparent 45%),
+        #0d0d0f;
+      box-shadow: 0 0 50px rgba(139,92,246,.08);
+    }
+
+    .popular-label {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 7px 10px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: white;
+      border-radius: 20px;
+      font-size: 9px;
+      font-weight: 1000;
+    }
+
+    .price-card h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .price-description {
+      color: #70707b;
+      font-size: 12px;
+      line-height: 1.6;
+      min-height: 40px;
+    }
+
+    .price {
+      margin: 25px 0;
+    }
+
+    .price small {
+      color: #70707b;
+      font-size: 11px;
+    }
+
+    .price strong {
+      display: block;
+      color: white;
+      font-size: 33px;
+      margin-top: 5px;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .features li {
+      color: #c0c0c8;
+      font-size: 12px;
+      margin: 13px 0;
+      display: flex;
+      gap: 9px;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: #a78bfa;
+      font-weight: 1000;
+    }
+
+    .price-card .btn {
+      width: 100%;
+    }
+
+    /* =========================
+       PORTFOLIO
+    ========================= */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .portfolio {
+      background: #0d0d0f;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      transition: .35s;
+    }
+
+    .portfolio:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .portfolio-preview {
+      height: 240px;
+      position: relative;
+      padding: 17px;
+      overflow: hidden;
+    }
+
+    .portfolio-preview.one {
+      background: linear-gradient(135deg, #181028, #080808);
+    }
+
+    .portfolio-preview.two {
+      background: linear-gradient(135deg, #071a1a, #080808);
+    }
+
+    .portfolio-preview.three {
+      background: linear-gradient(135deg, #210c18, #080808);
+    }
+
+    .mockup {
+      width: 82%;
+      height: 86%;
+      position: absolute;
+      left: 9%;
+      top: 9%;
+      background: #111114;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px 12px 0 0;
+      padding: 15px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.5);
+    }
+
+    .mock-nav {
+      height: 7px;
+      width: 40%;
+      border-radius: 4px;
+      background: #555560;
+      margin-bottom: 20px;
+    }
+
+    .mock-title {
+      width: 70%;
+      height: 18px;
+      border-radius: 5px;
+      background: white;
+      opacity: .85;
+      margin-bottom: 10px;
+    }
+
+    .mock-text {
+      width: 85%;
+      height: 6px;
+      border-radius: 5px;
+      background: #45454d;
+      margin-bottom: 7px;
+    }
+
+    .mock-button {
+      width: 75px;
+      height: 23px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      margin-top: 13px;
+    }
+
+    .portfolio-info {
+      padding: 20px;
+    }
+
+    .portfolio-info h3 {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .portfolio-info p {
+      color: #70707b;
+      font-size: 11px;
+    }
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .process {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .number {
+      width: 55px;
+      height: 55px;
+      margin: auto auto 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: #111114;
+      border: 1px solid var(--border);
+      color: #a78bfa;
+      font-weight: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .process h3 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .process p {
+      color: #70707b;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       TESTIMONIAL
+    ========================= */
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .testimonial {
+      background: #0d0d0f;
+      border: 1px solid var(--border);
+      border-radius: 21px;
+      padding: 27px;
+    }
+
+    .stars {
+      color: #a78bfa;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial p {
+      color: #9999a4;
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 1000;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+    }
+
+    .person strong {
+      display: block;
+      color: white;
+      font-size: 12px;
+    }
+
+    .person span {
+      display: block;
+      color: #666671;
+      font-size: 10px;
+      margin-top: 3px;
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .faq-item {
+      background: #0d0d0f;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 19px;
+      border: none;
+      background: transparent;
+      color: white;
+      text-align: left;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .faq-question span {
+      color: #a78bfa;
+      font-size: 20px;
+      transition: .3s;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      color: #777782;
+      font-size: 12px;
+      line-height: 1.8;
+      padding: 0 19px;
+      transition: .35s;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 150px;
+      padding: 0 19px 19px;
+    }
+
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding-top: 60px;
+      padding-bottom: 110px;
+    }
+
+    .cta-box {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 30px;
+      border-radius: 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(139,92,246,.35);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(139,92,246,.25), transparent 45%),
+        #0b0b0e;
+      box-shadow: 0 30px 90px rgba(0,0,0,.45);
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: var(--purple);
+      filter: blur(120px);
+      opacity: .15;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -130px;
+    }
+
+    .cta-box > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-box h2 {
+      color: white;
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .cta-box p {
+      color: #777782;
+      max-width: 600px;
+      margin: auto auto 28px;
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #030303;
+      border-top: 1px solid var(--border);
+      padding: 70px 5% 25px;
+    }
+
+    .footer-grid {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-about {
+      color: #666671;
+      font-size: 12px;
+      line-height: 1.8;
+      max-width: 320px;
+      margin-top: 17px;
+    }
+
+    .footer-title {
+      color: white;
+      font-size: 12px;
+      margin-bottom: 17px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .footer-links a {
+      color: #666671;
+      font-size: 11px;
+      transition: .2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      max-width: 1250px;
+      margin: 50px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      color: #50505a;
+      font-size: 10px;
+    }
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp {
+      position: fixed;
+      right: 23px;
+      bottom: 23px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      font-size: 25px;
+      z-index: 2000;
+      box-shadow: 0 10px 35px rgba(37,211,102,.25);
+      transition: .3s;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.1);
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      backdrop-filter: blur(10px);
+      z-index: 9000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 520px;
+      background: #0d0d10;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 24px;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 30px 100px rgba(0,0,0,.7);
+      animation: modalIn .3s ease;
+    }
+
+    @keyframes modalIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .close-modal {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      width: 35px;
+      height: 35px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #151518;
+      color: white;
+      font-size: 19px;
+      cursor: pointer;
+    }
+
+    .modal-box h2 {
+      color: white;
+      margin-bottom: 7px;
+    }
+
+    .modal-box > p {
+      color: #6e6e79;
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      color: #aaaab3;
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #202025;
+      border-radius: 11px;
+      outline: none;
+      background: #08080a;
+      color: white;
+      font-size: 12px;
+      transition: .2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(139,92,246,.1);
+    }
+
+    .form-group textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .modal-submit {
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 950px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons,
+      .stats {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        max-width: 680px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .services,
+      .pricing,
+      .portfolio-grid,
+      .testimonials {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 14px 5%;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 5%;
+        right: 5%;
+        padding: 18px;
+        background: rgba(10,10,10,.96);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        padding: 8px;
+      }
+
+      .nav-order {
+        text-align: center;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 125px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2.5px;
+      }
+
+      .stats {
+        gap: 20px;
+      }
+
+      section {
+        padding: 75px 5%;
+      }
+
+      .services,
+      .pricing,
+      .portfolio-grid,
+      .testimonials,
+      .process-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .preview {
+        min-height: 330px;
+      }
+
+      .preview-title {
+        margin-top: 45px;
+        font-size: 30px;
+      }
+
+      .preview-card {
+        width: 135px;
+      }
+
+      .cta-box {
+        padding: 55px 22px;
+      }
+
+      .copyright {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       LOADING
+  ========================= -->
+
+  <div id="loader">
+    <div class="loader-box">
+
+      <div class="loader-logo">
+        DW
+      </div>
+
+      <div class="loader-name">
+        DARKWEBS
+      </div>
+
+      <div class="loader-text">
+        Preparing digital experience...
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header id="header">
+
+    <div class="nav">
+
+      <a href="#home" class="logo">
+
+        <div class="logo-icon">
+          DW
+        </div>
+
+        <div class="logo-text">
+          DARK<span>WEBS</span>
+        </div>
+
+      </a>
+
+
+      <nav id="navMenu">
+
+        <a href="#home">Home</a>
+
+        <a href="#layanan">Layanan</a>
+
+        <a href="#harga">Harga</a>
+
+        <a href="#portfolio">Portfolio</a>
+
+        <a href="#faq">FAQ</a>
+
+        <a href="#kontak" class="nav-order">
+          Pesan Sekarang
+        </a>
+
+      </nav>
+
+
+      <button class="menu-btn" id="menuBtn">
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <main id="home">
+
+    <section class="hero">
+
+      <div>
+
+        <div class="badge">
+          <span class="live-dot"></span>
+          OPEN ORDER — WEBSITE DEVELOPMENT
+        </div>
+
+
+        <h1>
+          Website
+          <span class="gradient">
+            premium
+          </span>
+          untuk bisnis kamu.
+        </h1>
+
+
+        <p>
+          DARKWEBS membantu kamu membangun website modern,
+          cepat, responsive, dan profesional untuk bisnis,
+          portfolio, toko online, maupun personal brand.
+        </p>
+
+
+        <div class="buttons">
+
+          <a href="#harga" class="btn btn-primary">
+            🚀 Lihat Paket
+          </a>
+
+          <a href="#portfolio" class="btn btn-dark">
+            ✦ Lihat Portfolio
+          </a>
+
+        </div>
+
+
+        <div class="stats">
+
+          <div class="stat">
+            <strong>50+</strong>
+            <span>Website dibuat</span>
+          </div>
+
+          <div class="stat">
+            <strong>98%</strong>
+            <span>Pelanggan puas</span>
+          </div>
+
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>Support</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- HERO WEBSITE MOCKUP -->
+
+      <div class="hero-visual">
+
+        <div class="hero-glow"></div>
+
+        <div class="browser">
+
+          <div class="browser-top">
+
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+
+            <div class="address"></div>
+
+          </div>
+
+
+          <div class="preview">
+
+            <div class="preview-content">
+
+              <div class="preview-logo">
+                DARKWEBS
+              </div>
+
+              <div class="preview-title">
+                We build
+                <span>digital.</span>
+              </div>
+
+              <div class="preview-text">
+                Modern websites designed to make your
+                brand look different from the competition.
+              </div>
+
+              <div class="preview-button">
+                START PROJECT →
+              </div>
+
+            </div>
+
+
+            <div class="preview-card">
+
+              <small>
+                PERFORMANCE
+              </small>
+
+              <strong>
+                98.7%
+              </strong>
+
+              <div class="mini-bars">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================= -->
+
+    <section id="layanan">
+
+      <div class="section-inner">
+
+        <div class="heading">
+
+          <small>OUR SERVICES</small>
+
+          <h2>
+            Website yang dibuat
+            <span class="gradient">serius.</span>
+          </h2>
+
+          <p>
+            Kami menyediakan berbagai layanan untuk membantu
+            bisnis kamu tampil lebih profesional di dunia digital.
+          </p>
+
+        </div>
+
+
+        <div class="services">
+
+          <div class="service">
+
+            <div class="service-icon">
+              💻
+            </div>
+
+            <h3>
+              Company Profile
+            </h3>
+
+            <p>
+              Website profesional untuk perusahaan,
+              bisnis, organisasi, dan brand.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              🛒
+            </div>
+
+            <h3>
+              Online Store
+            </h3>
+
+            <p>
+              Website toko online dengan tampilan
+              modern untuk menampilkan produk.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              ⚡
+            </div>
+
+            <h3>
+              Landing Page
+            </h3>
+
+            <p>
+              Landing page untuk promosi,
+              iklan, campaign, dan produk digital.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              👤
+            </div>
+
+            <h3>
+              Personal Website
+            </h3>
+
+            <p>
+              Portfolio, CV online, personal branding,
+              dan profile profesional.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              🎨
+            </div>
+
+            <h3>
+              UI / UX Design
+            </h3>
+
+            <p>
+              Desain interface yang modern,
+              nyaman digunakan dan sesuai brand.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              🛠️
+            </div>
+
+            <h3>
+              Maintenance
+            </h3>
+
+            <p>
+              Update, perbaikan, optimasi,
+              dan pengembangan website.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRICING
+    ========================= -->
+
+    <section id="harga" class="pricing-section">
+
+      <div class="section-inner">
+
+        <div class="heading">
+
+          <small>PRICING</small>
+
+          <h2>
+            Pilih paket
+            <span class="gradient">kamu.</span>
+          </h2>
+
+          <p>
+            Paket dapat disesuaikan dengan kebutuhan
+            dan fitur website yang kamu inginkan.
+          </p>
+
+        </div>
+
+
+        <div class="pricing">
+
+
+          <!-- STARTER -->
+
+          <div class="price-card">
+
+            <h3>
+              Starter
+            </h3>
+
+            <div class="price-description">
+              Cocok untuk portfolio,
+              personal dan website sederhana.
+            </div>
+
+            <div class="price">
+
+              <small>
+                Mulai dari
+              </small>
+
+              <strong>
+                Rp499K
+              </strong>
+
+            </div>
+
+
+            <ul class="features">
+
+              <li>1–3 halaman</li>
+              <li>Responsive HP & PC</li>
+              <li>Desain modern</li>
+              <li>Form kontak</li>
+              <li>Basic SEO</li>
+
+            </ul>
+
+
+            <button
+              class="btn btn-primary order-btn"
+              data-package="Starter"
+            >
+              Pesan Paket
+            </button>
+
+          </div>
+
+
+          <!-- PROFESSIONAL -->
+
+          <div class="price-card popular">
+
+            <div class="popular-label">
+              BEST SELLER
+            </div>
+
+            <h3>
+              Professional
+            </h3>
+
+            <div class="price-description">
+              Cocok untuk bisnis dan brand
+              yang ingin tampil profesional.
+            </div>
+
+            <div class="price">
+
+              <small>
+                Mulai dari
+              </small>
+
+              <strong>
+                Rp999K
+              </strong>
+
+            </div>
+
+
+            <ul class="features">
+
+              <li>5–8 halaman</li>
+              <li>Responsive design</li>
+              <li>Animasi interaktif</li>
+              <li>Form pemesanan</li>
+              <li>SEO dasar</li>
+              <li>Integrasi WhatsApp</li>
+
+            </ul>
+
+
+            <button
+              class="btn btn-primary order-btn"
+              data-package="Professional"
+            >
+              Pesan Paket
+            </button>
+
+          </div>
+
+
+          <!-- PREMIUM -->
+
+          <div class="price-card">
+
+            <h3>
+              Premium
+            </h3>
+
+            <div class="price-description">
+              Untuk bisnis yang membutuhkan
+              website dengan fitur lebih lengkap.
+            </div>
+
+            <div class="price">
+
+              <small>
+                Mulai dari
+              </small>
+
+              <strong>
+                Rp1.999K
+              </strong>
+
+            </div>
+
+
+            <ul class="features">
+
+              <li>Unlimited halaman</li>
+              <li>UI/UX custom</li>
+              <li>Animasi premium</li>
+              <li>Fitur custom</li>
+              <li>Optimasi performa</li>
+              <li>Prioritas support</li>
+
+            </ul>
+
+
+            <button
+              class="btn btn-primary order-btn"
+              data-package="Premium"
+            >
+              Pesan Paket
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PORTFOLIO
+    ========================= -->
+
+    <section id="portfolio">
+
+      <div class="section-inner">
+
+        <div class="heading">
+
+          <small>PORTFOLIO</small>
+
+          <h2>
+            Beberapa project
+            <span class="gradient">kami.</span>
+          </h2>
+
+          <p>
+            Contoh konsep desain yang dapat digunakan
+            sebagai referensi website kamu.
+          </p>
+
+        </div>
+
+
+        <div class="portfolio-grid">
+
+
+          <div class="portfolio">
+
+            <div class="portfolio-preview one">
+
+              <div class="mockup">
+
+                <div class="mock-nav"></div>
+
+                <div class="mock-title"></div>
+
+                <div class="mock-text"></div>
+
+                <div class="mock-text"></div>
+
+                <div class="mock-button"></div>
+
+              </div>
+
+            </div>
+
+
+            <div class="portfolio-info">
+
+              <h3>
+                Digital Agency
+              </h3>
+
+              <p>
+                Modern • Dark • Premium
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="portfolio">
+
+            <div class="portfolio-preview two">
+
+              <div class="mockup">
+
+                <div class="mock-nav"></div>
+
+                <div class="mock-title"></div>
+
+                <div class="mock-text"></div>
+
+                <div class="mock-text"></div>
+
+                <div class="mock-button"></div>
+
+              </div>
+
+            </div>
+
+
+            <div class="portfolio-info">
+
+              <h3>
+                Online Store
+              </h3>
+
+              <p>
+                Clean • Elegant • Responsive
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="portfolio">
+
+            <div class="portfolio-preview three">
+
+              <div class="mockup">
+
+                <div class="mock-nav"></div>
+
+                <div class="mock-title"></div>
+
+                <div class="mock-text"></div>
+
+                <div class="mock-text"></div>
+
+                <div class="mock-button"></div>
+
+              </div>
+
+            </div>
+
+
+            <div class="portfolio-info">
+
+              <h3>
+                Personal Brand
+              </h3>
+
+              <p>
+                Creative • Minimal • Stylish
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROCESS
+    ========================= -->
+
+    <section>
+
+      <div class="section-inner">
+
+        <div class="heading">
+
+          <small>HOW IT WORKS</small>
+
+          <h2>
+            Pesan website
+            <span class="gradient">tanpa ribet.</span>
+          </h2>
+
+          <p>
+            Proses pengerjaan dibuat sederhana
+            dan transparan.
+          </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+          <div class="process">
+
+            <div class="number">
+              01
+            </div>
+
+            <h3>
+              Konsultasi
+            </h3>
+
+            <p>
+              Ceritakan ide dan kebutuhan
+              website kamu.
+            </p>
+
+          </div>
+
+
+          <div class="process">
+
+            <div class="number">
+              02
+            </div>
+
+            <h3>
+              Desain
+            </h3>
+
+            <p>
+              Kami membuat konsep visual
+              sesuai identitas brand.
+            </p>
+
+          </div>
+
+
+          <div class="process">
+
+            <div class="number">
+              03
+            </div>
+
+            <h3>
+              Development
+            </h3>
+
+            <p>
+              Website mulai dikembangkan
+              sesuai desain yang disetujui.
+            </p>
+
+          </div>
+
+
+          <div class="process">
+
+            <div class="number">
+              04
+            </div>
+
+            <h3>
+              Launch
+            </h3>
+
+            <p>
+              Website siap digunakan
+              dan dipublikasikan.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TESTIMONIAL
+    ========================= -->
+
+    <section>
+
+      <div class="section-inner">
+
+        <div class="heading">
+
+          <small>TESTIMONIAL</small>
+
+          <h2>
+            Mereka suka.
+            <span class="gradient">Kamu juga.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="testimonials">
+
+
+          <div class="testimonial">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              "Website yang dibuat terlihat sangat
+              profesional dan sesuai dengan konsep
+              yang saya inginkan."
+            </p>
+
+            <div class="person">
+
+              <div class="avatar">
+                A
+              </div>
+
+              <div>
+                <strong>
+                  Andi
+                </strong>
+
+                <span>
+                  Business Owner
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="testimonial">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              "Tampilannya clean, responsive,
+              dan jauh lebih bagus daripada
+              website saya sebelumnya."
+            </p>
+
+            <div class="person">
+
+              <div class="avatar">
+                S
+              </div>
+
+              <div>
+                <strong>
+                  Salsa
+                </strong>
+
+                <span>
+                  Online Seller
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="testimonial">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              "Prosesnya gampang dan komunikasinya
+              enak. Hasil akhirnya sangat memuaskan."
+            </p>
+
+            <div class="person">
+
+              <div class="avatar">
+                R
+              </div>
+
+              <div>
+                <strong>
+                  Rizky
+                </strong>
+
+                <span>
+                  Content Creator
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================= -->
+
+    <section id="faq">
+
+      <div class="section-inner">
+
+        <div class="heading">
+
+          <small>FAQ</small>
+
+          <h2>
+            Pertanyaan
+            <span class="gradient">umum.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="faq">
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              Apakah bisa request desain sendiri?
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              Bisa. Kamu dapat memberikan referensi
+              desain, warna, logo, gambar, maupun
+              contoh website yang kamu sukai.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              Apakah website responsive?
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              Ya. Website dibuat responsive sehingga
+              dapat menyesuaikan layar HP, tablet,
+              laptop, dan desktop.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              Berapa lama pengerjaannya?
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              Lama pengerjaan tergantung kompleksitas
+              website dan jumlah fitur yang diperlukan.
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              Apakah bisa dibantu hosting dan domain?
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              Bisa. Kamu dapat meminta bantuan untuk
+              setup domain, hosting, SSL, dan publikasi
+              website.
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section id="kontak" class="cta">
+
+      <div class="cta-box">
+
+        <h2>
+          Ready to build
+          <span class="gradient">something?</span>
+        </h2>
+
+        <p>
+          Punya ide website? Ceritakan kepada kami.
+          DARKWEBS siap membantu mengubah ide tersebut
+          menjadi website yang terlihat premium.
+        </p>
+
+        <button
+          class="btn btn-primary"
+          id="ctaOrder"
+        >
+          🚀 Mulai Project
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+
+      <div>
+
+        <a href="#home" class="logo">
+
+          <div class="logo-icon">
+            DW
+          </div>
+
+          <div class="logo-text">
+            DARK<span>WEBS</span>
+          </div>
+
+        </a>
+
+        <p class="footer-about">
+
+          Digital web studio yang membantu bisnis
+          dan personal brand memiliki website modern,
+          cepat, dan profesional.
+
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="footer-title">
+          MENU
+        </h3>
+
+        <div class="footer-links">
+
+          <a href="#home">
+            Home
+          </a>
+
+          <a href="#layanan">
+            Layanan
+          </a>
+
+          <a href="#harga">
+            Harga
+          </a>
+
+          <a href="#portfolio">
+            Portfolio
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="footer-title">
+          SERVICES
+        </h3>
+
+        <div class="footer-links">
+
+          <a href="#harga">
+            Landing Page
+          </a>
+
+          <a href="#harga">
+            Company Profile
+          </a>
+
+          <a href="#harga">
+            Online Store
+          </a>
+
+          <a href="#harga">
+            Personal Website
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h3 class="footer-title">
+          CONTACT
+        </h3>
+
+        <div class="footer-links">
+
+          <a href="#" id="footerWhatsApp">
+            WhatsApp
+          </a>
+
+          <a href="mailto:hello@darkwebs.id">
+            Email
+          </a>
+
+          <a href="#faq">
+            FAQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+      <span>
+        © 2026 DARKWEBS. All rights reserved.
+      </span>
+
+      <span>
+        Crafted with ⚡
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       FLOATING WHATSAPP
+  ========================= -->
+
+  <a
+    href="#"
+    id="whatsappBtn"
+    class="whatsapp"
+    title="Chat WhatsApp"
+  >
+    ☎
+  </a>
+
+
+  <!-- =========================
+       ORDER MODAL
+  ========================= -->
+
+  <div class="modal" id="orderModal">
+
+    <div class="modal-box">
+
+      <button
+        class="close-modal"
+        id="closeModal"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        Mulai Project 🚀
+      </h2>
+
+      <p>
+        Isi data berikut dan kami akan menghubungi
+        kamu melalui WhatsApp.
+      </p>
+
+
+      <form id="orderForm">
+
+
+        <div class="form-group">
+
+          <label>
+            NAMA
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Nama kamu"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            PAKET
+          </label>
+
+          <select id="package">
+
+            <option value="Starter">
+              Starter — Rp499K
+            </option>
+
+            <option value="Professional">
+              Professional — Rp999K
+            </option>
+
+            <option value="Premium">
+              Premium — Rp1.999K
+            </option>
+
+            <option value="Custom">
+              Custom Website
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            JENIS WEBSITE
+          </label>
+
+          <select id="websiteType">
+
+            <option>
+              Landing Page
+            </option>
+
+            <option>
+              Company Profile
+            </option>
+
+            <option>
+              Toko Online
+            </option>
+
+            <option>
+              Portfolio
+            </option>
+
+            <option>
+              Personal Website
+            </option>
+
+            <option>
+              Custom
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            KEBUTUHAN WEBSITE
+          </label>
+
+          <textarea
+            id="message"
+            placeholder="Ceritakan website yang kamu inginkan..."
+          ></textarea>
+
+        </div>
+
+
+        <button
+          class="btn btn-primary modal-submit"
+        >
+          💬 Kirim ke WhatsApp
+        </button>
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* ==========================================
+       NOMOR WHATSAPP
+       ========================================== */
+
+    /*
+       GANTI NOMOR DI BAWAH INI.
+
+       Contoh:
+       628123456789
+
+       Jangan gunakan:
+       +62
+       spasi
+       tanda -
+    */
+
+    const WHATSAPP_NUMBER = "6281234567890";
+
+
+    /* ==========================================
+       LOADING
+       ========================================== */
+
+    window.addEventListener("load", () => {
+
+      setTimeout(() => {
+
+        const loader =
+          document.getElementById("loader");
+
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+
+          loader.style.display = "none";
+
+        }, 500);
+
+      }, 800);
+
+    });
+
+
+    /* ==========================================
+       HEADER
+       ========================================== */
+
+    const header =
+      document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 30) {
+
+        header.classList.add("scrolled");
+
+      } else {
+
+        header.classList.remove("scrolled");
+
+      }
+
+    });
+
+
+    /* ==========================================
+       MOBILE MENU
+       ========================================== */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navMenu =
+      document.getElementById("navMenu");
+
+
+    menuBtn.addEventListener("click", () => {
+
+      navMenu.classList.toggle("active");
+
+      menuBtn.textContent =
+        navMenu.classList.contains("active")
+          ? "×"
+          : "☰";
+
+    });
+
+
+    document.querySelectorAll("nav a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navMenu.classList.remove("active");
+
+          menuBtn.textContent = "☰";
+
+        });
+
+      });
+
+
+    /* ==========================================
+       FAQ
+    ========================================== */
+
+    document
+      .querySelectorAll(".faq-question")
+      .forEach(question => {
+
+        question.addEventListener("click", () => {
+
+          const current =
+            question.parentElement;
+
+          document
+            .querySelectorAll(".faq-item")
+            .forEach(item => {
+
+              if (item !== current) {
+
+                item.classList.remove("active");
+
+              }
+
+            });
+
+          current.classList.toggle("active");
+
+        });
+
+      });
+
+
+    /* ==========================================
+       MODAL
+    ========================================== */
+
+    const modal =
+      document.getElementById("orderModal");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+    const packageSelect =
+      document.getElementById("package");
+
+
+    function openModal(packageName = "Professional") {
+
+      packageSelect.value = packageName;
+
+      modal.classList.add("active");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeOrderModal() {
+
+      modal.classList.remove("active");
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    document
+      .querySelectorAll(".order-btn")
+      .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          openModal(
+            button.dataset.package
+          );
+
+        });
+
+      });
+
+
+    document
+      .getElementById("ctaOrder")
+      .addEventListener("click", () => {
+
+        openModal("Professional");
+
+      });
+
+
+    closeModal.addEventListener(
+      "click",
+      closeOrderModal
+    );
+
+
+    modal.addEventListener("click", e => {
+
+      if (e.target === modal) {
+
+        closeOrderModal();
+
+      }
+
+    });
+
+
+    document.addEventListener("keydown", e => {
+
+      if (e.key === "Escape") {
+
+        closeOrderModal();
+
+      }
+
+    });
+
+
+    /* ==========================================
+       FORM → WHATSAPP
+    ========================================== */
+
+    document
+      .getElementById("orderForm")
+      .addEventListener("submit", e => {
+
+        e.preventDefault();
+
+
+        const name =
+          document
+            .getElementById("name")
+            .value
+            .trim();
+
+
+        const packageName =
+          document
+            .getElementById("package")
+            .value;
+
+
+        const websiteType =
+          document
+            .getElementById("websiteType")
+            .value;
+
+
+        const message =
+          document
+            .getElementById("message")
+            .value
+            .trim();
+
+
+        const text =
+`Halo DARKWEBS 👋
+
+Saya ingin memesan jasa website.
+
+👤 Nama:
+${name}
+
+📦 Paket:
+${packageName}
+
+🌐 Jenis Website:
+${websiteType}
+
+📝 Kebutuhan:
+${message || "Belum ada detail tambahan."}
+
+Saya ingin konsultasi lebih lanjut mengenai project ini.
+
+Terima kasih!`;
+
+
+        const url =
+          "https://wa.me/" +
+          WHATSAPP_NUMBER +
+          "?text=" +
+          encodeURIComponent(text);
+
+
+        window.open(
+          url,
+          "_blank"
+        );
+
+      });
+
+
+    /* ==========================================
+       WHATSAPP BUTTON
+    ========================================== */
+
+    const whatsappText =
+      "Halo DARKWEBS 👋 Saya ingin konsultasi mengenai jasa pembuatan website.";
+
+
+    const whatsappURL =
+      "https://wa.me/" +
+      WHATSAPP_NUMBER +
+      "?text=" +
+      encodeURIComponent(whatsappText);
+
+
+    document
+      .getElementById("whatsappBtn")
+      .href = whatsappURL;
+
+
+    document
+      .getElementById("footerWhatsApp")
+      .href = whatsappURL;
+
+
+    /* ==========================================
+       SCROLL REVEAL
+    ========================================== */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".service, .price-card, .portfolio, .process, .testimonial, .faq-item"
+      );
+
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.style.opacity = "1";
+
+              entry.target.style.transform =
+                "translateY(0)";
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: .1
+        }
+      );
+
+
+    revealElements.forEach(element => {
+
+      element.style.opacity = "0";
+
+      element.style.transform =
+        "translateY(25px)";
+
+      element.style.transition =
+        "opacity .6s ease, transform .6s ease";
+
+      observer.observe(element);
+
+    });
+
+  </script>
+
+</body>
+</html>
